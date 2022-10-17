@@ -1,0 +1,347 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2CD06D5-8379-46A8-87FA-969A8AA6AD67}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WcfDataService</RootNamespace>
+    <AssemblyName>WcfDataService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.4.3.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CiaService.svc" />
+    <Content Include="Web.config" />
+    <Content Include="WorldData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorldData.edmx</DependentUpon>
+      <LastGenOutput>WorldData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WorldData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorldData.edmx</DependentUpon>
+      <LastGenOutput>WorldData.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuyingGroup.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuyingGroups_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CiaService.svc.cs">
+      <DependentUpon>CiaService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Cities_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColdRoomTemperature.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColdRoomTemperatures_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Color.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Colors_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Countries_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerCategories_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerCategory.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customers1.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customers_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerTransaction.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\GetSalesPeople.cs" />
+    <Compile Include="DeliveryMethod.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryMethods_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMovementUpdates_Result.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetOrderUpdates_Result.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPurchaseUpdates_Result.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSaleUpdates_Result.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStockHoldingUpdates_Result.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetTransactionUpdates_Result.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ICiaServics.cs" />
+    <Compile Include="Invoice.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceLine.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderLine.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageType.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTypes_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethod.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethods_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="People_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderLine.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialDeal.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateProvince.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateProvinces_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockGroup.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockGroups_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockItem.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockItemHolding.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockItemStockGroup.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockItems_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockItemTransaction.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierCategories_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierCategory.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers1.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierTransaction.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParameter.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionType.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionTypes_Archive.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleTemperature.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleTemperatures1.cs">
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorldData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorldData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorldData.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dal\DataAccess.tt.old" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <EntityDeploy Include="WorldData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WorldData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="WorldData.edmx.diagram">
+      <DependentUpon>WorldData.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12106</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12106/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
