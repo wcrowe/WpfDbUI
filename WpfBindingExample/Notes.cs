@@ -10,12 +10,6 @@ namespace WpfBindingExample
 {
     public class Notes : INotifyPropertyChanged
     {
-
-
-
-
-
-
         private Guid _id;
         private string? _fullName;
         private DateTime? _createdDate;
