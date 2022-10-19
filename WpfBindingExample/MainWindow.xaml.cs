@@ -19,13 +19,14 @@ namespace WpfBindingExample
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : global::System.Windows.Window
-    {
+    { 
         public Notes? Notes { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             var dc = new global::WpfBindingExample.DataClass();
-            var notes = dc.GetNotes()!;
+       
+            Notes = dc.GetNotes()!;
             this.DataContext  = dc.GetNotes();
         }
     }
