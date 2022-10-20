@@ -16,7 +16,7 @@
             <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding CreatedDate, StringFormat=\{0:g\}}" Width="150" />
             <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding FullName}" Width="150" />
             <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding Id}" Width="150"  />
-            <CheckBox Margin="200,10,0,0" IsChecked="{Binding IsDeleted}" Content="Deleted" FontWeight="bold" />
+            <CheckBox Margin="200,10,0,0" IsChecked="{Binding IsDeleted}" Content="Deleted" FontWeight="bold" Foreground="White"  />
         </StackPanel>
         <DataGrid Grid.Row="1" ItemsSource="{Binding NoteDetailsList }" Margin="0,0,0,0"/>
 
