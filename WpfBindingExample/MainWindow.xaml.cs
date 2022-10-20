@@ -25,9 +25,7 @@ namespace WpfBindingExample
         {
             InitializeComponent();
             var dc = new global::WpfBindingExample.DataClass();
-       
-            Notes = dc.GetNotes()!;
-            this.DataContext  = dc.GetNotes();
+            DataContext = dc.GetNotes();
         }
     }
 }

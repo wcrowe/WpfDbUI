@@ -28,16 +28,6 @@ namespace WpfBindingExample
         }
 
 
-        public ObservableCollection<NoteDetails> NoteDetailsList
-        {
-
-            get => _noteDetailsList!;
-
-            set => SetField(ref _noteDetailsList, value);
-        }
-
-
-
         public string FullName
         {
             get => _fullName ?? "";
@@ -55,6 +45,15 @@ namespace WpfBindingExample
             get => _isDeleted;
             set => SetField(ref _isDeleted, value);
         }
+
+        public ObservableCollection<NoteDetails> NoteDetailsList
+        {
+
+            get => _noteDetailsList!;
+
+            set => SetField(ref _noteDetailsList, value);
+        }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

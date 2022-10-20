@@ -1,46 +1,24 @@
-﻿<Window
-    x:Class="WpfBindingExample.MainWindow"
+﻿<Window x:Class="WpfBindingExample.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WpfBindingExample"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="800"
-    Height="450"
-    mc:Ignorable="d"
-    Title="MainWindow" >
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Width="800" Height="450" mc:Ignorable="d" Title="MainWindow">
     <Window.DataContext>
         <local:Notes/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="209"></RowDefinition>
             <RowDefinition Height="75*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1"
-            Width="120"
-            Margin="15,9,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            DataContext="{Binding}"
-            Text="{Binding Path=FullName}"
-            
-            TextWrapping="Wrap" />
-        <TextBox Grid.Row="1"
-            Width="120"
-            Margin="200,10,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Text="{Binding CreatedDate, StringFormat=\{0:g\}}"
-            TextWrapping="Wrap" />
-        <TextBox Grid.Row="1"
-                 Margin="400,10,0,0"
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Top"
-                 Text="{Binding Id}"
-                 TextWrapping="Wrap" />
-
-        <DataGrid Grid.Row="1"  ItemsSource="{Binding NoteDetailsList }" Margin="0,234,0,0"/>
+        <StackPanel Grid.Row="0" Background="#FF172D5A" Height="209" Margin="0,0,0,0" VerticalAlignment="Top">
+            <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding CreatedDate, StringFormat=\{0:g\}}" Width="150" />
+            <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding FullName}" Width="150" />
+            <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding Id}" Width="150"  />
+            <CheckBox Margin="200,10,0,0" IsChecked="{Binding IsDeleted}" Content="Deleted" FontWeight="bold" />
+        </StackPanel>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding NoteDetailsList }" Margin="0,0,0,0"/>
 
     </Grid>
 </Window>
