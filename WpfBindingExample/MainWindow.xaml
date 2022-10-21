@@ -18,7 +18,21 @@
             <TextBox Margin="200,10,0,0" HorizontalAlignment="Left" Text="{Binding Id}" Width="150"  />
             <CheckBox Margin="200,10,0,0" IsChecked="{Binding IsDeleted}" Content="Deleted" FontWeight="bold" Foreground="White"  />
         </StackPanel>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding NoteDetailsList }" Margin="0,0,0,0"/>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding NoteDetailsList }" Margin="0,0,0,0" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" ColumnHeaderHeight="30" >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Chartreuse" />
+                    <Setter Property="BorderThickness" Value="0,1,1,2"></Setter>
+                    <Setter Property="Padding" Value="5,0,0,0"></Setter>
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Note"  Binding="{Binding Path=NoteName}" Width="200"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=NoteText}" Width="200"/>
+                <DataGridTextColumn Header="Create Date" Binding="{Binding Path=CreatedDate}" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
